@@ -1,0 +1,36 @@
+.transaction-wrapper {
+  min-height: 80vh;
+  .table-container {
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: none;
+  }
+  .table-header {
+    background-color: #3a80ba;
+  }
+  .header-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    border-right: 1px solid #fff;
+  }
+
+  .item-table-cell {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 12px;
+    border-right: 1px solid #fff;
+  }
+  .last {
+    border-right: none;
+  }
+  .item-table-row {
+    height: 32px;
+    background-color: #fbfbfb;
+    &:nth-child(2n) {
+      background-color: #f1f1f1;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.footer {
+  background-color: #1c3b55;
+  height: 57px;
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 24px;
+    line-height: 1.5em;
+  }
+  .text-content {
+    font-size: 16px;
+  }
+}
