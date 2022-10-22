@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,31 +6,42 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import PaginationRounded from "./PaginationRounded";
+import SearchInputWiithSelect from "./SearchInputWiithSelect";
+import { getData } from "../api/Api";
 
 const TransactionsTable = () => {
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
+  const [transactionsData, setTransactionsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [totalCount, setTotalCount] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterOption, setFilterOption] = useState("address");
 
-  const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-  ];
+  console.log(transactionsData);
+  const getTransactions = async () => {
+    try {
+      const { data } = await getData("http://localhost:4000/api/transactions");
+      console.log(data);
+      setTransactionsData(data.transactions.slice(0, 14));
+      setTotalCount(data.totalCount);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (!transactionsData.length) getTransactions();
+  }, [transactionsData.length]);
+
+  const handlePagechange = (page) => {
+    setIsLoading(true);
+    setCurrentPage(page);
+  };
 
   return (
     <div className="transaction-wrapper container">
+      <SearchInputWiithSelect />
       <TableContainer component={Paper} className="table-container">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead className="table-header">
@@ -62,9 +73,9 @@ const TransactionsTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {transactionsData?.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.transactionId}
                 className="item-table-row"
                 sx={{
                   "&:last-child td, &:last-child th": {
@@ -73,34 +84,47 @@ const TransactionsTable = () => {
                 }}
               >
                 <TableCell align="left" className="item-table-cell">
-                  {row.name}
+                  {row.blockNumber}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.calories}
+                  <a
+                    href={`https://etherscan.io/tx/${row.transactionId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {row.transactionId}
+                  </a>
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.fat}
+                  {row.senderAdress}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.carbs}left
+                  {row.recipAdress}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.protein}
+                  {row.blockConfirmations}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.protein}
+                  {row.date}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell">
-                  {row.protein}
+                  {row.value}
                 </TableCell>
                 <TableCell align="left" className="item-table-cell last">
-                  {row.protein}
+                  {row.transactionFee}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      {!isLoading ? (
+        <PaginationRounded
+          handlePagechange={handlePagechange}
+          totalCount={totalCount}
+          page={currentPage}
+        />
+      ) : null}
     </div>
   );
 };

@@ -29,6 +29,9 @@
   .item-table-row {
     height: 32px;
     background-color: #fbfbfb;
+    a {
+      color: #3a80ba;
+    }
     &:nth-child(2n) {
       background-color: #f1f1f1;
     }

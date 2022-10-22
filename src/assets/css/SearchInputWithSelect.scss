@@ -1,0 +1,6 @@
+.search-input {
+  border: none;
+  &:focus-visible {
+    border: none;
+  }
+}
