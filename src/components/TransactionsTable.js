@@ -23,7 +23,7 @@ const TransactionsTable = () => {
       setIsLoading(true);
       try {
         const { data } = await getData(
-          `./api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
+          `https://eth.bxpro.com.ua/api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
         );
         setTransactionsData(data);
         setTotalCount(data.totalPageCount);

@@ -41,14 +41,16 @@ const SearchInputWiithSelect = ({
           </Select>
         </div>
       </Box>
-      <Button
-        className="search-button"
-        variant="contained"
-        type="button"
-        onClick={() => handleClickButton()}
-      >
-        <SearchIcon className="button-search-icon" />
-      </Button>
+      <div>
+        <Button
+          className="search-button"
+          variant="contained"
+          type="button"
+          onClick={() => handleClickButton()}
+        >
+          <SearchIcon className="button-search-icon" />
+        </Button>
+      </div>
     </div>
   );
 };
