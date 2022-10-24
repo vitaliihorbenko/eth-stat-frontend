@@ -1,0 +1,32 @@
+.pagination-wrapper {
+  .pagination-component {
+    margin: 0 auto;
+    margin-top: 50px;
+    .MuiButtonBase-root {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+    }
+    .MuiPaginationItem-page {
+      border: 2px solid #f1f1f1;
+    }
+    .MuiPaginationItem-previousNext {
+      border: none;
+    }
+    .MuiSvgIcon-root {
+      fill: #3a80ba;
+      width: 50px;
+      height: 50px;
+    }
+    .Mui-disabled.MuiPaginationItem-previousNext {
+      opacity: 0.2;
+    }
+    .Mui-selected {
+      background-color: #3a80ba;
+      color: #fff;
+      &:hover {
+        color: #000000de;
+      }
+    }
+  }
+}

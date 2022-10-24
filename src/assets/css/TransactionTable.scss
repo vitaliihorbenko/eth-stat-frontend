@@ -1,0 +1,71 @@
+.transaction-wrapper {
+  min-height: calc(80vh + 5px);
+  .table-container {
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: none;
+  }
+  .table-header {
+    background-color: #3a80ba;
+  }
+  .header-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    border-right: 1px solid #fff;
+    max-height: 48px;
+    padding: 4px 12px;
+  }
+
+  .item-table-cell {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 12px;
+    border-right: 1px solid #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .block-number {
+    width: 70px;
+    max-width: 118px;
+  }
+  .transaction-id {
+    max-width: 118px;
+  }
+  .sender-address {
+    max-width: 110px;
+    width: 70px;
+  }
+  .recipient-address {
+    max-width: 85px;
+  }
+  .block-confirm {
+    max-width: 150px;
+    width: 100px;
+  }
+  .date {
+    max-width: 80px;
+  }
+  .value {
+    max-width: 150px;
+  }
+  .transaction-fee {
+    width: 120px;
+    max-width: 118px;
+  }
+  .last {
+    border-right: none;
+  }
+  .item-table-row {
+    height: 32px;
+    background-color: #fbfbfb;
+    a {
+      color: #3a80ba;
+    }
+    &:nth-child(2n) {
+      background-color: #f1f1f1;
+    }
+  }
+}

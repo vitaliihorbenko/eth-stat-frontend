@@ -1,0 +1,78 @@
+.search-wrapper {
+  border: none;
+  margin-top: 60px;
+  display: flex;
+
+  .search-select-wrapper {
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+    position: relative;
+
+    .search-select {
+      width: 160px;
+      font-size: 14px;
+      border: 0;
+      color: #1a1a1a;
+      font-family: "Montserrat", sans-serif;
+      .MuiOutlinedInput-notchedOutline {
+        border: none;
+      }
+      .MuiSelect-icon {
+        fill: #3a80ba;
+        width: 40px;
+        height: 40px;
+        top: 10px;
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 60%;
+        left: 0;
+        background: #f1f1f1;
+      }
+    }
+
+    .search-input {
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      padding: 0 8px;
+
+      &:focus {
+        border: none;
+      }
+
+      &:hover:not(.Mui-disabled):before,
+      &:before,
+      &:after,
+      &:hover {
+        border: none;
+      }
+    }
+  }
+
+  .search-button {
+    background-color: #3a80ba;
+    margin-left: 15px;
+    border-radius: 10px;
+    min-width: none !important;
+    width: 53px;
+    height: 53px;
+    padding: 0;
+    .MuiButtonBase-root.MuiButton-root.MuiButton-containedSizeSmall {
+      min-width: none;
+    }
+    &:hover {
+      background-color: #1565c0;
+    }
+    .button-search-icon {
+      fill: #fff;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
