@@ -23,7 +23,7 @@ const TransactionsTable = () => {
       setIsLoading(true);
       try {
         const { data } = await getData(
-          `http://localhost:4000/api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
+          `./api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
         );
         setTransactionsData(data);
         setTotalCount(data.totalPageCount);
