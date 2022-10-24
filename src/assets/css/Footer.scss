@@ -4,16 +4,22 @@
   display: flex;
   align-items: center;
 
-  .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
   .logo {
     font-size: 24px;
     line-height: 1.5em;
   }
   .text-content {
     font-size: 16px;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: 600px) {
+      .text-content {
+        font-size: 13px;
+        text-align: center;
+      }
+    }
   }
 }
