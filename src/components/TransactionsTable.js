@@ -32,7 +32,7 @@ const TransactionsTable = () => {
       }
       setIsLoading(false);
     },
-    [currentPage, filterOption, searchQuery]
+    [filterOption, searchQuery]
   );
 
   useEffect(() => {
