@@ -2,12 +2,7 @@ import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const PaginationRounded = ({
-  isMobile,
-  page,
-  totalCount,
-  handlePagechange,
-}) => {
+const PaginationRounded = ({ page, totalCount, handlePagechange }) => {
   return (
     <div className="container pagination-wrapper">
       <Stack spacing={2}>

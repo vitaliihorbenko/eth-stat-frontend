@@ -1,8 +1,8 @@
 .transaction-wrapper {
-  min-height: 80vh;
+  min-height: calc(80vh + 5px);
   .table-container {
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
     box-shadow: none;
   }
   .table-header {
@@ -14,6 +14,8 @@
     font-size: 16px;
     color: #fff;
     border-right: 1px solid #fff;
+    max-height: 48px;
+    padding: 4px 12px;
   }
 
   .item-table-cell {
@@ -22,6 +24,36 @@
     font-size: 14px;
     padding: 0 12px;
     border-right: 1px solid #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .block-number {
+    width: 70px;
+    max-width: 118px;
+  }
+  .transaction-id {
+    max-width: 118px;
+  }
+  .sender-address {
+    max-width: 110px;
+    width: 70px;
+  }
+  .recipient-address {
+    max-width: 85px;
+  }
+  .block-confirm {
+    max-width: 150px;
+    width: 100px;
+  }
+  .date {
+    max-width: 80px;
+  }
+  .value {
+    max-width: 150px;
+  }
+  .transaction-fee {
+    width: 120px;
+    max-width: 118px;
   }
   .last {
     border-right: none;
