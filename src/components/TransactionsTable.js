@@ -18,18 +18,13 @@ const TransactionsTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterOption, setFilterOption] = useState("recipAdress");
 
-  console.log(transactionsData);
   const getTransactions = useCallback(
     async (currentPage = 1) => {
       setIsLoading(true);
       try {
         const { data } = await getData(
-          `https://eth.bxpro.com.ua/api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
+          `http://localhost:4000/api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
         );
-        // const { data } = await getData(
-        //   `http://localhost:4000/api/transactions?filterOption=${filterOption}&searchString=${searchQuery}&page=${currentPage}`
-        // );
-        console.log(data);
         setTransactionsData(data);
         setTotalCount(data.totalPageCount);
       } catch (error) {
@@ -45,7 +40,6 @@ const TransactionsTable = () => {
   }, []);
 
   const handlePagechange = (event, value) => {
-    console.log(value);
     setCurrentPage(value);
     getTransactions(value);
   };
